@@ -110,7 +110,7 @@ router.get('/:id/comments', (req, res) => {
                 .then(comments => {
                     res.status(200).json(comments);
                 })
-                .catch(err => res.status(500).json({ message: `The comments information could not be retrieved`, error: err.message }))
+                .catch(() => res.status(500).json({ message: `The comments information could not be retrieved` }))
         })
 
 })
