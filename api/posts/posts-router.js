@@ -8,9 +8,8 @@ router.get('/', (req, res) => {
         .then(posts => {
             res.status(200).json(posts);
         })
-        .catch(err => res.status(500).json({
-            message: `The posts information could not be retrieved`,
-            error: err.message
+        .catch(() => res.status(500).json({
+            message: `The posts information could not be retrieved`
         }))
 })
 
@@ -43,9 +42,8 @@ router.post('/', (req, res) => {
                 .then(post => res.status(201).json(post))
                 .catch(err => res.status(500).json({ message: err.message }))
         })
-        .catch(err => res.status(500).json({
-            message: `There was an error while saving the post to the database`,
-            error: err.message
+        .catch(() => res.status(500).json({
+            message: `There was an error while saving the post to the database`
         }))
 })
 
@@ -72,9 +70,8 @@ router.put('/:id', (req, res) => {
                         })
                         .catch(err => res.status(500).json(err))
                 })
-                .catch(err => res.status(500).json({
-                    message: `The post information could not be modified`,
-                    error: err.message
+                .catch(() => res.status(500).json({
+                    message: `The post information could not be modified`
                 }))
         })
         .catch(err => res.status(500).json({ message: err.message }))
@@ -94,9 +91,8 @@ router.delete('/:id', (req, res) => {
                     ? res.status(500).json({message: `Something is wrong`})
                     : res.status(200).json(deletedPost);
                 })
-                .catch(err => res.status(500).json({
-                    message: `The post could not be removed`,
-                    error: err.message
+                .catch(() => res.status(500).json({
+                    message: `The post could not be removed`
                 }))
         })
         .catch(err => res.status(500).json({ message: err.message }))
